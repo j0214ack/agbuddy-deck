@@ -114,6 +114,23 @@
     }
     .kicker .hi { color: var(--accent); }
 
+    /* LINE chat mockup (slide 2) */
+    .phone { max-width: 620px; margin: 24px auto 0; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: 0 10px 32px rgba(26, 26, 26, 0.12); }
+    .phone-bar { display: flex; align-items: center; gap: 10px; padding: 11px 18px; background: #fff; border-bottom: 1px solid var(--line); font-weight: 700; font-size: clamp(15px, 1.7vw, 18px); color: var(--ink); }
+    .phone-bar .ava { width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex: 0 0 auto; }
+    .phone-bar .net { margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--muted); font-weight: 400; }
+    .chat { display: flex; flex-direction: column; gap: 9px; padding: 15px 15px; background: #d9e2ea; }
+    .msg { max-width: 82%; padding: 9px 13px; font-size: clamp(13.5px, 1.55vw, 17px); line-height: 1.5; border-radius: 15px; word-break: break-word; }
+    .msg.me { align-self: flex-end; background: #06c755; color: #fff; border-bottom-right-radius: 4px; }
+    .msg.bot { align-self: flex-start; background: #fff; color: var(--ink); border: 1px solid rgba(0, 0, 0, 0.05); border-bottom-left-radius: 4px; }
+
+    /* proof gallery (實戰舉例) */
+    .proofs { display: flex; gap: 20px; justify-content: center; align-items: flex-start; margin-top: 30px; flex-wrap: wrap; }
+    .proof { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 200px; max-width: 44vw; }
+    .proof img { height: 44vh; max-height: 400px; min-height: 230px; width: 100%; object-fit: cover; object-position: top; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 8px 26px rgba(26, 26, 26, 0.14); background: #fff; }
+    .proof .cap { font-size: clamp(13px, 1.45vw, 16px); color: var(--ink-soft); line-height: 1.45; text-align: center; }
+    .proof .cap b { color: var(--accent); font-weight: 700; }
+
     /* entrance animation */
     .fade-up { opacity: 0; transform: translateY(24px); }
     .slide.active .fade-up { animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
@@ -220,13 +237,20 @@
     <!-- ===== SLIDE 2 - 是什麼 + 怎麼用 (LINE) ===== -->
     <div class="slide" data-slide="1">
       <div class="wrap">
-        <div class="eyebrow fade-up">agbuddy 是什麼</div>
-        <div class="headline fade-up fade-up-d1">一個住在你 <span class="hi">LINE</span> 裡、<br>會幫你做事的 AI 業務助理。</div>
-        <div class="lead fade-up fade-up-d2">不用另外開 app、不用開電腦。就在你每天都在用的 LINE，像交辦一個助理一樣。你用講的，它把事做好。</div>
-        <div class="list">
-          <div class="item fade-up fade-up-d3"><span class="mk">＞</span><span>「剛跟陳先生聊完，他在意保費、小孩剛出生」<span class="sub">　→　記進他的客戶檔案</span></span></div>
-          <div class="item fade-up fade-up-d4"><span class="mk">＞</span><span>「下週五提醒我追王董的報價」<span class="sub">　→　幫你排好提醒</span></span></div>
-          <div class="item fade-up fade-up-d5"><span class="mk">＞</span><span>「擬一則跟林小姐約下次見面的訊息」<span class="sub">　→　寫好草稿等你送</span></span></div>
+        <div class="eyebrow fade-up">agbuddy 是什麼 ・ 怎麼用</div>
+        <div class="headline fade-up fade-up-d1">打開 <span class="hi">LINE</span>，用講的就好。</div>
+        <div class="phone fade-up fade-up-d2">
+          <div class="phone-bar"><span class="ava">a</span>agbuddy<span class="net">LINE</span></div>
+          <div class="chat">
+            <div class="msg me">剛跟陳先生聊完，他比較在意保費，小孩剛出生</div>
+            <div class="msg bot">好，已記進陳先生的檔案：在意保費、新生兒家庭。要不要順手排個 follow-up？</div>
+            <div class="msg me">好，下週五提醒我給他報價</div>
+            <div class="msg bot">已排：下週五 7/4 提醒你給陳先生報價 👍</div>
+            <div class="msg me">再幫我擬一則跟林小姐約見面的訊息</div>
+            <div class="msg bot">這樣可以嗎：「林小姐午安，上次聊到的儲蓄規劃我整理好了，這週四或五方便碰個面嗎？大概 30 分鐘就好」</div>
+            <div class="msg me">改成下週，其他不變</div>
+            <div class="msg bot">好，改成下週。草稿存好了，你確認就能送出</div>
+          </div>
         </div>
       </div>
     </div>
@@ -268,8 +292,22 @@
       </div>
     </div>
 
-    <!-- ===== SLIDE 5 - 怎麼開始 (CTA) ===== -->
+    <!-- ===== SLIDE 5 - 實戰舉例 (proof) ===== -->
     <div class="slide" data-slide="4">
+      <div class="wrap">
+        <div class="eyebrow fade-up">實戰舉例</div>
+        <div class="headline fade-up fade-up-d1">不是 demo。<span class="hi">是我每天在用的。</span></div>
+        <div class="proofs">
+          <div class="proof fade-up fade-up-d2"><img src="assets/proof-1.png" alt="請它把簡報發到網路上"><div class="cap">請它把<b>這份簡報</b>發上公開網站</div></div>
+          <div class="proof fade-up fade-up-d3"><img src="assets/proof-2.png" alt="跟它討論簡報架構"><div class="cap">這份簡報的<b>架構</b>就是這樣討論出來的</div></div>
+          <div class="proof fade-up fade-up-d4"><img src="assets/proof-3.png" alt="追蹤封測報名與行銷"><div class="cap">用它追<b>封測報名</b>、盤行銷</div></div>
+          <div class="proof fade-up fade-up-d5"><img src="assets/proof-4.png" alt="記家裡採購與記帳"><div class="cap">連家裡的<b>採購、記帳</b>都丟給它</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SLIDE 6 - 怎麼開始 (CTA) ===== -->
+    <div class="slide" data-slide="5">
       <div class="wrap">
         <div class="eyebrow fade-up">怎麼開始</div>
         <div class="headline fade-up fade-up-d1">正在招募<span class="hi">付費封測。</span></div>
